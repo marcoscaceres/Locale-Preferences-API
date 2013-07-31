@@ -1,11 +1,12 @@
-# Proposal: Locale Preferences API
+# Proposal: Language Preferences API
 
 ## Abstract
 
 This document proposes an extension to HTML's `Navigator` interface to enable
-dynamic localization of content. The idea is to expose to script the language
-tags that represents the user's locale preferences (akin to the language tags
-that are normally sent with HTTP's `Accept-Languages` header).
+dynamic localization of content. The idea is to expose to script the language 
+tags that are normally sent by the browser with HTTP's Accept-Language header, 
+which can be used in determining the language of the user interface/page, 
+and in some cases for an attempt at locale identification. 
 
 Also proposed is a "`languageschange`" event, so that scripts can be notified if
 the user changes the ordering of their preferred locales.
