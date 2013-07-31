@@ -9,12 +9,12 @@ which can be used in determining the language of the user interface/page,
 and in some cases for an attempt at locale identification. 
 
 Also proposed is a "`languageschange`" event, so that scripts can be notified if
-the user changes the ordering of their preferred locales.
+the user changes the ordering of their preferred languages.
 
 ## Problem we are trying to solve
 
 In order to support dynamic localization of content on the client-side,
-developers need to have access to the user's locale  preferences. In user
+developers need to have access to the user's language preferences. In user
 agents, this is generally represented as an ordered list  of [BCP47] language
 tags, which is shared with servers through the `Accept-Language` HTTP header.
 
@@ -42,20 +42,19 @@ without needing to reboot the device).
 To overcome these limitations, and solely in Mozilla's FirefoxOS, developers are
 relying on a  proprietary 
 [mozSettings API](https://developer.mozilla.org/en-US/docs/Web/API/window.navigator.mozSettings) 
-to get notified when the user's locale preferences change.
+to get notified when the user's language preferences change.
 
 In order to address the issues described above, and to move away from having to
 rely on a proprietary solution, this document proposes the following extensions
 to the [HTML]'s Navigator interface.
 
-## Acquiring the end-user's locale preferences
+## Acquiring the end-user's language preferences
 
-The end-user's locale preferences represents the end-user's preferred languages
-and regional settings, which are derived from the operating system or directly
-from the user agent. As there are numerous ways a user agent can derive the end-
-user's preferred languages and regional settings, the means by which those
-values are derived are beyond the scope of this document and left up to the
-implementation.
+The end-user's language preferences represents the end-user's preferred
+languages, which are derived from the operating system or directly from the user
+agent. As there are numerous ways a user agent can derive the end- user's
+preferred languages and regional settings, the means by which those values are
+derived are beyond the scope of this document and left up to the implementation.
  
 ## Extensions to Navigator interface
 
@@ -84,12 +83,12 @@ that represents the user's most preferred language.
 
 ## Event handlers
 
-If the user updates their locale preferences in such a way that it would cause
+If the user updates their language preferences in such a way that it would cause
 the ordering of language tags change, then the user agent MUST perform the
 following steps. These steps use the DOM manipulation task source as the task
 source. 
 
-1. Let lang list be the updated list of preferred locales.
+1. Let lang list be the updated list of preferred languages.
 
 2. Queue a task to perform the following:
 
@@ -122,7 +121,7 @@ question is allowed access to the information.
 
 It is envisioned that the primary purpose for this API will be to take a list of
 language-tags supported by an application and compare it with the list of
-language-tags that represent the user's locale preferences.
+language-tags that represent the user's language preferences.
 
 Because of the nature of language tags, working with language tags can be
 notoriously difficult - particularly when comparing two lists for changes.
