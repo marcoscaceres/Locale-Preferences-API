@@ -5,7 +5,7 @@
 This document proposes an extension to HTML's `Navigator` interface to enable
 dynamic localization of content. The idea is to expose to script the language
 tags that represents the user's locale preferences (akin to the language tags
-that are normally sent with HTTP's `Accept-Languages` header).
+that are normally sent with HTTP's `Accept-Language` header).
 
 Also proposed is a "`languageschange`" event, so that scripts can be notified if
 the user changes the ordering of their preferred locales.
@@ -15,11 +15,11 @@ the user changes the ordering of their preferred locales.
 In order to support dynamic localization of content on the client-side,
 developers need to have access to the user's locale  preferences. In user
 agents, this is generally represented as an ordered list  of [BCP47] language
-tags, which is shared with servers through the `Accept-Languages` HTTP header.
+tags, which is shared with servers through the `Accept-Language` HTTP header.
 
 Traditionally, to access this list of language tags developers need to query a
 server to tell them what the browser's language preferences are set to (i.e., by
-reflecting the `Accept-Languages` HTTP header - and usually stripping away the
+reflecting the `Accept-Language` HTTP header - and usually stripping away the
 "q" values).  This has led to the creation of various xhr-based hacks and
 workarounds on the client side. See: [JavaScript for detecting browser language
 preference](http://stackoverflow.com/questions/1043339/javascript-for-
