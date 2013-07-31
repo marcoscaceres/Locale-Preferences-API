@@ -55,7 +55,7 @@ languages, which are derived from the operating system or directly from the user
 agent. As there are numerous ways a user agent can derive the end- user's
 preferred languages and regional settings, the means by which those values are
 derived are beyond the scope of this document and left up to the implementation.
- 
+
 ## Extensions to Navigator interface
 
 ```WebIDL
@@ -77,9 +77,10 @@ Note: We've received feedback that TC39 is not in favor of API's using frozen
 ## The `languages` attribute
 
 When getting, the languages attribute returns a read only platform Array
-[WebIDL] of valid language tags in canonical form [BCP47]. The array is ordered
-from most preferred to least preferred, where the first item is the language tag
-that represents the user's most preferred language.
+[WebIDL] of language tags that are structurally well-formed, as defined in
+ECMA-402 section 6.2.2, and in canonical form as per ECMA-402 section 6.2.3.
+The array is ordered from most preferred to least preferred, where  the first
+item is the language tag that represents the user's most  preferred language.
 
 ## Event handlers
 
